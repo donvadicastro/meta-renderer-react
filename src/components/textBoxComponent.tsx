@@ -27,7 +27,7 @@ export class TextBoxComponent extends DataComponentBase<DataBase> {
             </div>
         ) : (
             <div hidden={this.state['ui.hidden']}>
-                <label>{this.state['ui.label']}</label>
+                <label className="form-label">{this.state['ui.label']}</label>
                 <input className    = "form-control"
                        disabled     = { this.state['ui.disabled'] }
                        onChange     = { e => this.onChange(e) }

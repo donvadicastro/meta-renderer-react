@@ -1,3 +1,4 @@
+import {ContainerComponent} from "../containerComponent";
 import {TextBoxComponent} from "../textBoxComponent";
 import {FormComponent} from "../formComponent";
 import {ClassType} from "react";
@@ -9,6 +10,7 @@ import {TableComponent} from "../tableComponent";
 
 export default function factoryResolver (type: MetaComponentRenderer): ClassType<any, any, any> {
     switch (type) {
+        case MetaComponentRenderer.Container:       return ContainerComponent;
         case MetaComponentRenderer.Button:          return ButtonComponent;
         case MetaComponentRenderer.TextBox:         return TextBoxComponent;
         case MetaComponentRenderer.Dropdown:        return DropdownComponent;

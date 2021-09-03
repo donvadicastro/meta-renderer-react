@@ -19,7 +19,7 @@ export class DropdownComponent extends DataComponentBase<DictionaryBase> {
 
         return (
             <div hidden={this.state['ui.hidden']}>
-                <label>{this.state['ui.label']}</label>
+                <label className="form-label">{this.state['ui.label']}</label>
                 <AsyncSelect
                     cacheOptions defaultOptions
                     disabled     = { this.state['ui.disabled'] }

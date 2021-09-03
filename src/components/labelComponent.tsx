@@ -19,7 +19,7 @@ export class LabelComponent extends DataComponentBase<DataBase> {
         return (
             <div hidden={this.state['ui.hidden']}>
                 <label>{this.state['ui.label']}</label>
-                <label className    = "form-control">{ this.state.value }</label>
+                <label className="form-control">{ this.state.value }</label>
             </div>
         );
     }

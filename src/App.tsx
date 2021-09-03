@@ -12,15 +12,19 @@ function App() {
             <img src={logo} className="logo" alt="logo" />
             <FormComponentWrapper meta={{
                 name: 'testContainerComponent',
-                ui: {label: 'Main form'},
+                ui: {label: 'General purpose form'},
                 items: [
-                    { name: 'child1', binding: 'b1', dictionary: 'static', renderer: 'dropdown', ui: {label: 'Dictionary with static content'}},
-                    { name: 'child1-label', binding: 'b1.key', renderer: 'label', ui: {label: 'String readonly field (bound to dropdown selected key field)'}},
-                    { name: 'child1-value', binding: 'b1.name', renderer: 'label', ui: {label: 'String readonly field (bound to dropdown selected value field)'}},
-                    { name: 'child2', binding: 'b1', renderer: 'textbox', ui: {label: 'String field (enter here and see result in label3 and wise verse)'} },
-                    { name: 'child3', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: MetaComponentType.Number },
-                    { name: 'child4', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: MetaComponentType.Bool },
-                    { name: 'child5', binding: 'b1', ui: {label: 'String readonly field (label3 bound to label1)'}}
+                    { name: 'primitives', renderer: 'container', ui: {'label': 'Primitive elements and behaviors'}, items: [
+                            { name: 'primitives1', binding: 'b1', renderer: 'textbox', ui: {label: 'String field (enter here and see result in label3 and wise verse)'} },
+                            { name: 'primitives2', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: MetaComponentType.Number },
+                            { name: 'primitives3', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: MetaComponentType.Bool },
+                            { name: 'primitives4', binding: 'b1', ui: {label: 'String readonly field (label3 bound to label1)'}}
+                        ]},
+                    { name: 'dropdowns', renderer: 'container', ui: {'label': 'Primitive elements and behaviors'}, items: [
+                            { name: 'dropdowns1', binding: 'b1', dictionary: 'static', renderer: 'dropdown', ui: {label: 'Dictionary with static content'}},
+                            { name: 'dropdowns2', binding: 'b1.key', renderer: 'label', ui: {label: 'String readonly field (bound to dropdown selected key field)'}},
+                            { name: 'dropdowns3', binding: 'b1.name', renderer: 'label', ui: {label: 'String readonly field (bound to dropdown selected value field)'}}
+                        ]}
                 ], dictionaries: {
                     static: [
                         {key: 1, name: 'first'},
