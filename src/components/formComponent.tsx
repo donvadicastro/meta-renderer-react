@@ -5,9 +5,7 @@ import {ContainerComponent} from "./containerComponent";
 export class FormComponent extends ContainerComponent<Form> {
     render() {
         return (
-            <form name={this.props.meta.name}>
-                {super.render()}
-            </form>
+            <form name={this.props.meta.name}>{super.render()}</form>
         );
     }
 }
