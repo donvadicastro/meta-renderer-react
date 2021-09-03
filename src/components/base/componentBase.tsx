@@ -6,7 +6,9 @@ export interface ComponentPropsBase<T> {
     elementRef: () => T;
 }
 
-export class ComponentBase<T extends ElementBase> extends Component<ComponentPropsBase<T>, {'ui.label': string, 'ui.hidden': boolean, 'ui.disabled': boolean}> {
+type StateProperties = { 'ui.label': string, 'ui.hidden': boolean, 'ui.disabled': boolean };
+
+export class ComponentBase<T extends ElementBase> extends Component<ComponentPropsBase<T>, StateProperties> {
     constructor(props: ComponentPropsBase<T>) {
         super(props);
 
