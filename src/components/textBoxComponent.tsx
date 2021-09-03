@@ -9,14 +9,14 @@ import {DataBase} from "meta-framework/dist/app/models/components/base/data";
 export class TextBoxComponent extends DataComponentBase<DataBase> {
     resolveType(type: MetaComponentType) {
         switch (type) {
-            case MetaComponentType.Bool: return 'checkbox';
-            case MetaComponentType.Number: return 'number';
+            case 'bool': return 'checkbox';
+            case 'number': return 'number';
             default: return 'string';
         }
     }
 
     render() {
-        return this.props.elementRef().type === MetaComponentType.Bool ? (
+        return this.props.elementRef().type === 'bool' ? (
             <div className={"form-check form-switch"} hidden={this.state['ui.hidden']}>
                 <input className    = "form-check-input"
                        disabled     = { this.state['ui.disabled'] }

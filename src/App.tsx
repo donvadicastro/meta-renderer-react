@@ -3,7 +3,6 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {FormComponentWrapper} from "./components/formComponentWrapper";
-import {MetaComponentType} from "meta-framework/dist/app/enums/metaComponentType";
 import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
@@ -16,8 +15,8 @@ function App() {
                 items: [
                     { name: 'primitives', renderer: 'container', ui: {'label': 'Primitive elements and behaviors'}, items: [
                             { name: 'primitives1', binding: 'b1', renderer: 'textbox', ui: {label: 'String field (enter here and see result in label3 and wise verse)'} },
-                            { name: 'primitives2', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: MetaComponentType.Number },
-                            { name: 'primitives3', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: MetaComponentType.Bool },
+                            { name: 'primitives2', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: 'number' },
+                            { name: 'primitives3', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: 'bool' },
                             { name: 'primitives4', binding: 'b1', renderer: 'label', ui: {label: 'String readonly field (label3 bound to label1)'}}
                         ]}
                 ]}} />

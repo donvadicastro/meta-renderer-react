@@ -9,8 +9,8 @@ import {DataBase} from "meta-framework/dist/app/models/components/base/data";
 export class LabelComponent extends DataComponentBase<DataBase> {
     resolveType(type: MetaComponentType) {
         switch (type) {
-            case MetaComponentType.Bool: return 'checkbox';
-            case MetaComponentType.Number: return 'number';
+            case 'bool': return 'checkbox';
+            case 'number': return 'number';
             default: return 'string';
         }
     }

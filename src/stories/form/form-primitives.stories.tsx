@@ -2,7 +2,6 @@ import React from 'react';
 import {Meta, Story} from '@storybook/react';
 import {FormComponent} from "../../components/formComponent";
 import {StoryBuilder} from "../storyBuilder";
-import {MetaComponentType} from "meta-framework/dist/app/enums/metaComponentType";
 import {ComponentPropsBase} from "../../components/base/componentBase";
 import {Form} from "meta-framework/dist/app/models/components/form";
 
@@ -16,8 +15,8 @@ const template: Story<ComponentPropsBase<Form>> = (args) => <FormComponent {...a
 export const dataBinding = StoryBuilder.build(template, 'Data binding', {name: 'testContainerComponent',
     items: [
         { name: 'child1', binding: 'b1', renderer: 'textbox', ui: {label: 'String field (enter here and see result in label3 and wise verse)'} },
-        { name: 'child2', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: MetaComponentType.Number },
-        { name: 'child2', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: MetaComponentType.Bool },
+        { name: 'child2', binding: 'b2', renderer: 'textbox', ui: {label: 'Number field'}, type: 'number' },
+        { name: 'child2', binding: 'b2', renderer: 'textbox', ui: {label: 'Boolean field'}, type: 'bool' },
         { name: 'child3', binding: 'b1', ui: {label: 'String readonly field (label3 bound to label1)'}}
     ]});
 
