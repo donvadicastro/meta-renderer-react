@@ -7,7 +7,7 @@ Allows to represent data model using primitive controls:
 - `primitives1` and `primitives4` are bound to same data, so changing data in first automatically replicate data in second
 - `primitive2` strict bound to numeric type, so numeric textbox is used to represent this data model
 - `primitive3` is bool field, so checker is good option to represent
-```json
+```
 {
     name: 'generalPurposeForm',
     ui: {label: 'Primitive elements and behaviors'},
@@ -34,7 +34,7 @@ Allows representing dropdown list as a datasource for specific data models. Once
 - `static-dropdowns-2` is a label that bound to `b1.key` field (when `b1` is source of selected dictionary value), so will represent selected `key` field
 - `static-dropdowns-3` is a label that bound to `b1.name` field, so will represent selected `name` field
 - `dynamic-dropdowns-1` and all surrounding labels has same nature, but only dictionary itself is bound to external datasource, specified by URL `https://restcountries.eu/rest/v2/all`
-```json
+```
 {
     name: 'dictionaryForm',
     ui: {label: 'Dictionary Form'},
