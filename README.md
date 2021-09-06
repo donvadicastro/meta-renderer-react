@@ -1,2 +1,2 @@
 # meta-renderer-react
-Meta form renderer for React
+React renderer of forms designed using [meta-framework](https://github.com/donvadicastro/meta).
