@@ -1,3 +1,5 @@
+const CracoAlias = require("craco-alias");
+
 module.exports = {
     webpack: {
         configure: webpackConfig => {
@@ -15,5 +17,19 @@ module.exports = {
 
             return webpackConfig;
         }
-    }
+    },
+
+    plugins: [
+        {
+            plugin: CracoAlias,
+            options: {
+                source: "options",
+                baseUrl: "./src/app/",
+                aliases: {
+                    "@file": "./src/app/index.js",
+                    "@dir": "./src/app",
+                }
+            }
+        }
+    ]
 };
