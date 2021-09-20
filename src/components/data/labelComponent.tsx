@@ -1,5 +1,5 @@
 import React from 'react';
-import {DataComponentBase} from "./base/dataComponentBase";
+import {DataComponentBase} from "../base/dataComponentBase";
 import {MetaComponentType} from "meta-framework/dist/app/enums/metaComponentType";
 import {DataBase} from "meta-framework/dist/app/models/components/base/data";
 

@@ -1,22 +1,24 @@
-import {ContainerComponent} from "../containerComponent";
-import {TextBoxComponent} from "../textBoxComponent";
-import {FormComponent} from "../formComponent";
+import {FormComponent} from "../container/formComponent";
+import {ContainerComponent} from "../container/containerComponent";
+import {SectionComponent} from "../container/sectionComponent";
+import {TextBoxComponent} from "../data/textBoxComponent";
+import {RendererType} from "meta-framework/dist/app/contracts/IMetaBaseComponent";
 import {ClassType} from "react";
-import {MetaComponentRenderer} from "meta-framework/dist/app/enums/metaComponentRenderer";
-import {LabelComponent} from "../labelComponent";
-import {DropdownComponent} from "../dropdownComponent";
-import {ButtonComponent} from "../buttonComponent";
-import {TableComponent} from "../tableComponent";
+import {LabelComponent} from "../data/labelComponent";
+import {DropdownComponent} from "../data/dropdownComponent";
+import {ButtonComponent} from "../action/buttonComponent";
+import {TableComponent} from "../data/tableComponent";
 
-export default function factoryResolver (type: MetaComponentRenderer): ClassType<any, any, any> {
+export default function factoryResolver (type: RendererType): ClassType<any, any, any> {
     switch (type) {
-        case MetaComponentRenderer.Container:       return ContainerComponent;
-        case MetaComponentRenderer.Button:          return ButtonComponent;
-        case MetaComponentRenderer.TextBox:         return TextBoxComponent;
-        case MetaComponentRenderer.Dropdown:        return DropdownComponent;
-        case MetaComponentRenderer.Form:            return FormComponent;
-        case MetaComponentRenderer.Table:           return TableComponent;
+        case 'button':          return ButtonComponent;
+        case 'textbox':         return TextBoxComponent;
+        case 'dropdown':        return DropdownComponent;
+        case 'form':            return FormComponent;
+        case 'table':           return TableComponent;
+        case 'section':         return SectionComponent;
+        case 'container':       return ContainerComponent;
 
-        default:                                    return LabelComponent;
+        default:                return LabelComponent;
     }
 };

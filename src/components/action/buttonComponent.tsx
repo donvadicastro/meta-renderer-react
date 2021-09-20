@@ -1,12 +1,12 @@
 import React from "react";
 import {Action} from "meta-framework/dist/app/models/components/action";
-import {ComponentBase} from "./base/componentBase";
+import {ComponentBase} from "../base/componentBase";
 
 /**
  * Primary UI component for action
  */
 export class ButtonComponent extends ComponentBase<Action> {
-    onClick(e: any) {
+    onClick() {
         const confirmation = this.props.elementRef().getPropertyValue('action.confirmation');
         const canExecute = confirmation ? window.confirm(confirmation) : true;
 
@@ -16,7 +16,7 @@ export class ButtonComponent extends ComponentBase<Action> {
     render() {
         return (
             <button type="button" className="btn btn-primary" hidden={this.state['ui.hidden']} disabled={this.state['ui.disabled']}
-                onClick={e => this.onClick(e)}>{this.props.elementRef().getPropertyValue('ui.label')}</button>
+                onClick={() => this.onClick()}>{this.props.elementRef().getPropertyValue('ui.label')}</button>
         );
     }
 }

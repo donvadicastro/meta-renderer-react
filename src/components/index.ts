@@ -1,1 +1,1 @@
-export {FormComponentWrapper} from "./formComponentWrapper";
+export {FormComponentWrapper} from "./container/formComponentWrapper";

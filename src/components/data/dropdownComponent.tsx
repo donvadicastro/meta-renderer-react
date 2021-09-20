@@ -1,6 +1,6 @@
 import React from 'react';
 import AsyncSelect from 'react-select/async';
-import {DataComponentBase} from "./base/dataComponentBase";
+import {DataComponentBase} from "../base/dataComponentBase";
 import {DictionaryBase} from "meta-framework/dist/app/models/components/base/dictionary";
 
 /**
@@ -25,8 +25,15 @@ export class DropdownComponent extends DataComponentBase<DictionaryBase> {
                     disabled     = { this.state['ui.disabled'] }
                     onChange     = { (e: any) => this.onChange(e) }
                     loadOptions  = { loadOptions }
-                    value        = { this.state.value } />
+                    value        = { this.getDisplayValue()} />
             </div>
         );
+    }
+
+    private getDisplayValue() {
+        return this.state.value && {
+            label: this.state.value[this.props.elementRef().getPropertyValue('ui.displayField') || 'name'],
+            value: this.state.value[this.props.elementRef().getPropertyValue('ui.keyField') || 'key']
+        };
     }
 }

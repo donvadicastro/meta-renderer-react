@@ -1,4 +1,4 @@
-import {FormComponent} from "../../components/formComponent";
+import {FormComponent} from "../../components/container/formComponent";
 import {Meta, Story} from "@storybook/react";
 import React from "react";
 import {StoryBuilder} from "../storyBuilder";

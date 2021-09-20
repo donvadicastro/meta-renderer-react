@@ -1,6 +1,6 @@
 import React from 'react';
 import {Meta, Story} from '@storybook/react';
-import {FormComponent} from "../../components/formComponent";
+import {FormComponent} from "../../components/container/formComponent";
 import {StoryBuilder} from "../storyBuilder";
 import {ComponentPropsBase} from "../../components/base/componentBase";
 import {Form} from "meta-framework/dist/app/models/components/form";

@@ -1,4 +1,4 @@
-import {DataComponentBase} from "./base/dataComponentBase";
+import {DataComponentBase} from "../base/dataComponentBase";
 import React from "react";
 import {CollectionBase} from "meta-framework/dist/app/models/components/collection";
 import {DataTable} from 'primereact/datatable';
@@ -20,7 +20,7 @@ export class TableComponent extends DataComponentBase<CollectionBase> {
                            selectionMode="single"
                            paginator rows={10} rowsPerPageOptions={[10,25,50,100]}>
                     {this.props.meta.items.map((x: any) => {
-                        return <Column field={x.binding} header={x.name}></Column>
+                        return <Column field={x.binding} header={x.name}/>
                     })}
                 </DataTable>
             </div>
