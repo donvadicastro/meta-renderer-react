@@ -16,6 +16,7 @@ export class TextBoxComponent extends DataComponentBase<DataBase> {
     }
 
     render() {
+        console.log('rendering textbox', this.props.meta);
         return this.props.elementRef().type === 'bool' ? (
             <div className={"form-check form-switch"} hidden={this.state['ui.hidden']}>
                 <input className    = "form-check-input"

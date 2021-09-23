@@ -2,6 +2,7 @@ import {Component} from "react";
 import {ElementBase} from "meta-framework/dist/app/models/components/base/base/element";
 
 export interface ComponentPropsBase<T> {
+    key?: number;
     meta: any;
     elementRef: () => T;
 }
@@ -19,6 +20,7 @@ export class ComponentBase<T extends ElementBase> extends Component<ComponentPro
         };
 
         this.props.elementRef().bindDynamicChange(this.onDynamicChange.bind(this));
+        console.log('constructor');
     }
 
     onDynamicChange(prop: 'ui.label') {

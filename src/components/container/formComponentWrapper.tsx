@@ -14,7 +14,24 @@ export class FormComponentWrapper extends Component<FormWrapperParams> {
         this.element.initialize();
     }
 
+    shouldComponentUpdate(nextProps: Readonly<FormWrapperParams>, nextState: any) {
+        return JSON.stringify(nextProps.meta) !== JSON.stringify(this.props.meta);
+    }
+
+    componentWillReceiveProps(nextProps: Readonly<FormWrapperParams>, nextContext:any) {
+        this.element.destroy();
+        this.element = new Form(nextProps.meta);
+        this.element.initialize();
+        console.log('new props', nextProps.meta)
+    }
+
+    componentWillUnmount() {
+        console.log('unmount');
+        this.element.destroy();
+    }
+
     render() {
-        return <FormComponent meta={this.props.meta} elementRef={() => this.element}/>
+        console.log('rendering', this.props.meta);
+        return <FormComponent key={new Date().getDate()} meta={this.props.meta} elementRef={() => this.element}/>
     }
 }
