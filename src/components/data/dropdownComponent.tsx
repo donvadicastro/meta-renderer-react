@@ -13,8 +13,10 @@ export class DropdownComponent extends DataComponentBase<DictionaryBase> {
 
     render() {
         const loadOptions = (inputValue: string, callback: (data: any[]) => void) => {
-            this.props.elementRef().getList().then((data: any[]) => callback(data.map(x =>
-                ({...x, label: x[this.props.meta.ui.displayProperty || 'name']}))));
+            this.props.elementRef().getList()
+                .then((data: any[]) => callback(data
+                    .map(x => typeof x === 'string' ? {name: x} : x)
+                    .map(x => ({...x, label: x[this.props.meta.ui.displayProperty || 'name']}))));
         };
 
         return (
