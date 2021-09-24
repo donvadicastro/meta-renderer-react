@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {DataBase} from "meta-framework/dist/app/models/components/base/data";
-import {Form} from "../../../../meta/dist/app/models/components/form";
 
 export interface DataComponentPropsBase<T extends DataBase> {
     meta: any;
