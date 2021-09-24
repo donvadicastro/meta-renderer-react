@@ -52,19 +52,16 @@ function App() {
         }}, null, 2));
 
     return (
-        <div>
-            <Button label="Edit content" icon="pi pi-arrow-right" onClick={(e) => setVisible(true)}/>
-
-            <div className="container">
-                <img src={logo} className="logo" alt="logo" />
-
-                <Sidebar visible={visible} onHide={() => setVisible(false)} fullScreen={true}>
-                    <Button label="Save content" onClick={(e) => setVisible(false)}/>
-                    <br/><br/>
-                    <InputTextarea rows={30} cols={150} defaultValue={value} onBlur={(e) => setValue(e.target.value)} />
-                </Sidebar>
-
-                <FormComponentWrapper meta={JSON.parse(value)} />
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-sm-4">
+                    <h5>Form definition</h5>
+                    <InputTextarea rows={30} defaultValue={value} className="form-control"
+                                   onBlur={(e) => setValue(e.target.value)} />
+                </div>
+                <div className="col-sm-8">
+                    <FormComponentWrapper meta={JSON.parse(value)} />
+                </div>
             </div>
         </div>
     );
