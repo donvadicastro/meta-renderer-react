@@ -11,7 +11,7 @@ export class DataComponentBase<T extends DataBase> extends Component<DataCompone
         super(props);
 
         this.state = {
-            value: this.props.elementRef().getValue() || '',
+            value: this.props.elementRef().getValue(),
 
             'ui.label': this.props.elementRef().getPropertyValue('ui.label'),
             'ui.hidden': this.props.elementRef().getPropertyValue('ui.hidden'),
@@ -27,7 +27,7 @@ export class DataComponentBase<T extends DataBase> extends Component<DataCompone
     }
 
     onModelChange(value: any) {
-        console.log('model change', value);
+        console.log('model change', this.props.elementRef().name, value);
         this.setState({value: value});
     }
 

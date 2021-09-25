@@ -16,7 +16,12 @@ export class LabelComponent extends DataComponentBase<DataBase> {
     }
 
     render() {
-        return (
+        return this.props.elementRef().type === 'bool' ? (
+            <div className={"form-check form-switch"} hidden={this.state['ui.hidden']}>
+                <label className="form-check-label">{this.state['ui.label']}</label>
+                <input className="form-check-input" disabled={true} checked={this.state.value} type="checkbox" />
+            </div>
+        ) : (
             <div hidden={this.state['ui.hidden']}>
                 <label>{this.state['ui.label']}</label>
                 <label className="form-control">{ this.state.value }</label>
