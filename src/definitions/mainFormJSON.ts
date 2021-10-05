@@ -1,4 +1,4 @@
-export const mainFormDefinition = {
+export const mainFormDefinitionJSON = {
     name: 'generalPurposeForm',
     ui: {label: 'General purpose form'},
     items: [

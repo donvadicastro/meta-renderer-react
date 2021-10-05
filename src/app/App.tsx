@@ -3,10 +3,10 @@ import './App.css';
 import {FormComponentWrapper} from "../components";
 import 'bootstrap/dist/css/bootstrap.css';
 import {InputTextarea} from 'primereact/inputtextarea';
-import {mainFormDefinition} from "../definitions/mainForm";
+import {mainFormDefinitionYAML} from "../definitions/mainFormYAML";
 
 function App() {
-    const [value, setValue] = useState(JSON.stringify(mainFormDefinition, null, 2));
+    const [value, setValue] = useState(mainFormDefinitionYAML);
 
     return (
         <div className="container-fluid">
@@ -17,7 +17,7 @@ function App() {
                                    onBlur={(e) => setValue(e.target.value)} />
                 </div>
                 <div className="col-sm-8">
-                    <FormComponentWrapper meta={JSON.parse(value)} />
+                    <FormComponentWrapper yaml={value} />
                 </div>
             </div>
         </div>

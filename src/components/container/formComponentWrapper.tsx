@@ -2,7 +2,9 @@ import {Component} from "react";
 import {Form} from "meta-framework/dist/app/models/components/form";
 import {FormComponent} from "./formComponent";
 
-type FormWrapperParams = { meta: any };
+const YAML = require('yamljs');
+
+type FormWrapperParams = { json?: any, yaml?: string };
 
 export class FormComponentWrapper extends Component<FormWrapperParams> {
     element: Form;
@@ -10,28 +12,31 @@ export class FormComponentWrapper extends Component<FormWrapperParams> {
     constructor(props: FormWrapperParams) {
         super(props);
 
-        this.element = new Form(props.meta);
+        this.element = new Form(FormComponentWrapper.getMeta(props));
         this.element.initialize();
     }
 
     shouldComponentUpdate(nextProps: Readonly<FormWrapperParams>, nextState: any) {
-        return JSON.stringify(nextProps.meta) !== JSON.stringify(this.props.meta);
+        return JSON.stringify(nextProps.json) !== JSON.stringify(this.props.json) ||
+            nextProps.yaml !== this.props.yaml;
     }
 
     componentWillReceiveProps(nextProps: Readonly<FormWrapperParams>, nextContext:any) {
         this.element.destroy();
-        this.element = new Form(nextProps.meta);
+        this.element = new Form(FormComponentWrapper.getMeta(nextProps));
         this.element.initialize();
-        console.log('new props', nextProps.meta)
     }
 
     componentWillUnmount() {
-        console.log('unmount');
         this.element.destroy();
     }
 
     render() {
-        console.log('rendering', this.props.meta);
-        return <FormComponent key={new Date().getDate()} meta={this.props.meta} elementRef={() => this.element}/>
+        return <FormComponent key={new Date().getDate()}
+                              meta={FormComponentWrapper.getMeta(this.props)} elementRef={() => this.element}/>
+    }
+
+    private static getMeta(props: FormWrapperParams): any {
+        return props.yaml ? YAML.parse(props.yaml) : props.json;
     }
 }
