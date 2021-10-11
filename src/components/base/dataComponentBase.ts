@@ -6,24 +6,22 @@ export interface DataComponentPropsBase<T extends DataBase> {
     elementRef: () => T;
 }
 
-export class DataComponentBase<T extends DataBase> extends Component<DataComponentPropsBase<T>, {value: any, 'ui.label': string, 'ui.hidden': boolean, 'ui.disabled': boolean}> {
+type StateProperties = { value: any, 'ui.label': string, 'ui.hidden': boolean, 'ui.disabled': boolean };
+
+export class DataComponentBase<T extends DataBase> extends Component<DataComponentPropsBase<T>, StateProperties> {
+
     constructor(props: DataComponentPropsBase<T>) {
         super(props);
 
-        this.state = {
-            value: this.props.elementRef().getValue(),
-
-            'ui.label': this.props.elementRef().getPropertyValue('ui.label'),
-            'ui.hidden': this.props.elementRef().getPropertyValue('ui.hidden'),
-            'ui.disabled': this.props.elementRef().getPropertyValue('ui.disabled'),
-        };
-
+        this.state = this.getState(this.props.elementRef());
         this.props.elementRef().bindModelChange(this.onModelChange.bind(this));
     }
 
     componentWillReceiveProps(nextProps: Readonly<DataComponentPropsBase<T>>, nextContext:any) {
         this.props.elementRef().unbindModelChange(this.onModelChange.bind(this));
         nextProps.elementRef().bindModelChange(this.onModelChange.bind(this));
+
+        this.setState(this.getState(nextProps.elementRef()));
     }
 
     onModelChange(value: any) {
@@ -34,5 +32,15 @@ export class DataComponentBase<T extends DataBase> extends Component<DataCompone
     onChange(e: React.ChangeEvent<HTMLInputElement>) {
         console.log('control change', e.currentTarget.value, this.props.elementRef());
         this.props.elementRef().setValue(e.currentTarget.value);
+    }
+
+    protected getState(element: DataBase): StateProperties {
+        return {
+            value: element.getValue(),
+
+            'ui.label': element.getPropertyValue('ui.label'),
+            'ui.hidden': element.getPropertyValue('ui.hidden'),
+            'ui.disabled': element.getPropertyValue('ui.disabled'),
+        };
     }
 }

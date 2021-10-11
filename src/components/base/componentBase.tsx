@@ -13,17 +13,23 @@ export class ComponentBase<T extends ElementBase> extends Component<ComponentPro
     constructor(props: ComponentPropsBase<T>) {
         super(props);
 
-        this.state = {
-            'ui.label': this.props.elementRef().getPropertyValue('ui.label'),
-            'ui.hidden': this.props.elementRef().getPropertyValue('ui.hidden'),
-            'ui.disabled': this.props.elementRef().getPropertyValue('ui.disabled'),
-        };
-
+        this.state = this.getState(this.props.elementRef());
         this.props.elementRef().bindDynamicChange(this.onDynamicChange.bind(this));
-        console.log('constructor');
+    }
+
+    componentWillReceiveProps(nextProps: Readonly<ComponentPropsBase<T>>, nextContext:any) {
+        this.setState(this.getState(nextProps.elementRef()));
     }
 
     onDynamicChange(prop: 'ui.label') {
         this.setState({[prop]: this.props.elementRef().getPropertyValue(prop)});
+    }
+
+    protected getState(element: ElementBase): StateProperties {
+        return {
+            'ui.label': element.getPropertyValue('ui.label'),
+            'ui.hidden': element.getPropertyValue('ui.hidden'),
+            'ui.disabled': element.getPropertyValue('ui.disabled'),
+        };
     }
 }

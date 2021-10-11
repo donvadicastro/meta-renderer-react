@@ -1,14 +1,17 @@
 import React from 'react';
 import {DataComponentBase} from "../base/dataComponentBase";
-import {MetaComponentType} from "meta-framework/dist/app/enums/metaComponentType";
 import {DataBase} from "meta-framework/dist/app/models/components/base/data";
 
 /**
  * Primary UI component for user interaction
  */
 export class TextBoxComponent extends DataComponentBase<DataBase> {
-    resolveType(type: MetaComponentType) {
-        switch (type) {
+    resolveType(element: DataBase) {
+        switch (element.getPropertyValue('ui.type')) {
+            case 'password': return 'password';
+        }
+
+        switch (element.type) {
             case 'bool': return 'checkbox';
             case 'number': return 'number';
             default: return 'string';
@@ -33,7 +36,7 @@ export class TextBoxComponent extends DataComponentBase<DataBase> {
                        disabled     = { this.state['ui.disabled'] }
                        onChange     = { e => this.onChange(e) }
                        value        = { this.state.value }
-                       type         = { this.resolveType(this.props.elementRef().type) } />
+                       type         = { this.resolveType(this.props.elementRef()) } />
             </div>
         );
     }
