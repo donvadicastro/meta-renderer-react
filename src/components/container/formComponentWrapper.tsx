@@ -32,8 +32,10 @@ export class FormComponentWrapper extends Component<FormWrapperParams> {
     }
 
     render() {
-        return <FormComponent key={new Date().getDate()}
-                              meta={FormComponentWrapper.getMeta(this.props)} elementRef={() => this.element}/>
+        return <FormComponent
+            key={new Date().getDate()}
+            meta={FormComponentWrapper.getMeta(this.props)}
+            elementRef={() => this.element} />
     }
 
     private static getMeta(props: FormWrapperParams): any {
