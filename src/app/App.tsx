@@ -15,7 +15,6 @@ function App() {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-sm-4">
-                    <h5>Form definition</h5>
                     <AceEditor
                         mode="yaml"
                         theme="xcode"
