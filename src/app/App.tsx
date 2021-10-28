@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import './App.css';
 import {FormComponentWrapper} from "../components";
 import 'bootstrap/dist/css/bootstrap.css';
-import {InputTextarea} from 'primereact/inputtextarea';
 import {mainFormDefinitionYAML} from "../definitions/mainFormYAML";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-yaml";
+import "ace-builds/src-noconflict/theme-xcode";
 
 function App() {
     const [value, setValue] = useState(mainFormDefinitionYAML);
@@ -13,8 +16,15 @@ function App() {
             <div className="row">
                 <div className="col-sm-4">
                     <h5>Form definition</h5>
-                    <InputTextarea rows={30} defaultValue={value} className="form-control"
-                                   onBlur={(e) => setValue(e.target.value)} />
+                    <AceEditor
+                        mode="yaml"
+                        theme="xcode"
+                        value={value}
+                        width={"100%"}
+                        height={"100%"}
+                        onChange={(value) => setValue(value)}
+                        name="FormYamlEditor"
+                        editorProps={{ $blockScrolling: true }} />
                 </div>
                 <div className="col-sm-8">
                     <FormComponentWrapper yaml={value} />
