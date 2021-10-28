@@ -24,8 +24,8 @@ function App() {
     };
 
     return (
-        <div className="container-fluid">
-            <div className="row">
+        <div className="container-fluid min-100 d-flex flex-column">
+            <div className="row flex-grow-1">
                 <div className="col-sm-4">
                     <AceEditor
                         mode="yaml"
