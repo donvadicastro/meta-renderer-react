@@ -11,7 +11,7 @@ export class SectionComponent<T extends ContainerBase> extends ComponentBase<T> 
                 <h5>{this.props.meta.ui?.label}</h5>
                 <TabView activeIndex={0}>
                     {this.props.elementRef().items
-                        .filter(x => x._meta.renderer === 'container')
+                        .filter(x => x._meta.renderer === 'container' || x._meta.renderer === 'table')
                         .map(x => <TabPanel header={x.getPropertyValue('ui.label')}>
                             {React.createElement(factoryResolver(x._meta.renderer), {
                                 meta: x._meta, elementRef: () => x

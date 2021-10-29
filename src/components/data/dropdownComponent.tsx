@@ -3,6 +3,8 @@ import AsyncSelect from 'react-select/async';
 import {DataComponentBase} from "../base/dataComponentBase";
 import {DictionaryBase} from "meta-framework/dist/app/models/components/base/dictionary";
 
+const objectPath = require("object-path");
+
 /**
  * Primary UI component for user interaction
  */
@@ -16,7 +18,7 @@ export class DropdownComponent extends DataComponentBase<DictionaryBase> {
             this.props.elementRef().getList()
                 .then((data: any[]) => callback(data
                     .map(x => typeof x === 'string' ? {name: x} : x)
-                    .map(x => ({...x, label: x[this.props.meta.ui.displayProperty || 'name']}))));
+                    .map(x => ({...x, label: objectPath.get(x, this.props.meta.ui.displayField || 'name')}))));
         };
 
         return (
@@ -34,8 +36,11 @@ export class DropdownComponent extends DataComponentBase<DictionaryBase> {
 
     private getDisplayValue() {
         return this.state.value && {
-            label: this.state.value[this.props.elementRef().getPropertyValue('ui.displayField') || 'name'],
-            value: this.state.value[this.props.elementRef().getPropertyValue('ui.keyField') || 'key']
+            label: objectPath.get(this.state.value,
+                this.props.elementRef().getPropertyValue('ui.displayField') || 'name'),
+
+            value: objectPath.get(this.state.value,
+                this.props.elementRef().getPropertyValue('ui.keyField') || 'key')
         };
     }
 }

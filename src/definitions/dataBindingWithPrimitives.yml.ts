@@ -5,87 +5,45 @@ ui:
 items:
   - name: section
     renderer: section
-    ui:
-      label: Primitive elements and behaviors in section
     items:
-      - name: primitives
+      - name: data-types
         renderer: container
         ui:
-          label: Primitive elements and behaviors
+          label: Data types
         items:
-          - name: primitives1
+          - name: data-types-string
             binding: b1
             renderer: textbox
             ui:
-              label: >-
-                String field (enter here and see result in label3 as both bound
-                to same data path)
-          - name: primitives2
+              label: String field type
+          
+          - name: data-types-number
             binding: b2
             renderer: textbox
             ui:
-              label: Number field
+              label: Number field type
             type: number
-          - name: primitives3
+            
+          - name: data-types-boolean
             binding: b3
             renderer: textbox
             ui:
-              label: Boolean field
+              label: Boolean field type
             type: bool
-          - name: primitives4
+
+      - name: data-binding
+        renderer: container
+        ui:
+          label: Data binding
+        items:
+          - name: data-binding-field1
             binding: b1
-            renderer: label
+            renderer: textbox
             ui:
-              label: String readonly field (bound to first string field)
-      - name: static-dropdowns
-        renderer: container
-        ui:
-          label: Static dictionary form
-        items:
-          - name: static-dropdowns-1
-            binding: static1
-            dictionary: static
-            renderer: dropdown
+              label: String field is bound to "dataModel -> b1" path
+          - name: data-binding-field2
+            binding: b1
+            renderer: textbox
             ui:
-              label: Dictionary with static content
-          - name: static-dropdowns-2
-            binding: static1.key
-            renderer: label
-            ui:
-              label: String readonly field (bound to dropdown selected key field)
-          - name: static-dropdowns-3
-            binding: static1.name
-            renderer: label
-            ui:
-              label: String readonly field (bound to dropdown selected value field)
-      - name: dynamic-dropdowns
-        renderer: container
-        ui:
-          label: Dynamic dictionary form
-        items:
-          - name: dynamic-dropdowns-1
-            binding: dynamic1
-            dictionary: 'https://restcountries.eu/rest/v2/all'
-            renderer: dropdown
-            ui:
-              displayProperty: demonym
-              label: Dictionary with static content
-          - name: dynamic-dropdowns-2
-            binding: dynamic1.cioc
-            renderer: label
-            ui:
-              label: String readonly field (bound to dropdown selected key field)
-          - name: dynamic-dropdowns-3
-            binding: dynamic1.name
-            renderer: label
-            ui:
-              label: String readonly field (bound to dropdown selected value field)
-dictionaries:
-  static:
-    - key: 1
-      name: first
-    - key: 2
-      name: second
-    - key: 3
-      name: third
+              label: String field is bound to the same path
 `;
