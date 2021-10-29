@@ -47,19 +47,19 @@ function App() {
                                 d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
                         </svg>
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithPrimitives')} href="javascript:void(0)">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithPrimitives')}>
                         Data binding with primitives
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithCollections')} href="javascript:void(0)">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithCollections')}>
                         Data binding with collections
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dynamics')} href="javascript:void(0)">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dynamics')}>
                         Dynamics
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('actions')} href="javascript:void(0)">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('actions')}>
                         Actions
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('layout')} href="javascript:void(0)">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('layout')}>
                         Layout
                     </a>
                 </nav>
