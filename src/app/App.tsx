@@ -38,7 +38,7 @@ function App() {
         <div className="min-100 d-flex flex-column overflow-hidden">
             <header className="site-header sticky-top py-2">
                 <nav className="container d-flex flex-md-row justify-content-between">
-                    <a className="py-2" href="#" aria-label="Product">
+                    <a className="py-2" aria-label="Product">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="d-block mx-auto"
                              role="img" viewBox="0 0 24 24"><title>Product</title>
@@ -47,19 +47,19 @@ function App() {
                                 d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
                         </svg>
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithPrimitives')} href="#">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithPrimitives')} href="javascript:void(0)">
                         Data binding with primitives
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithCollections')} href="#">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dataBindingWithCollections')} href="javascript:void(0)">
                         Data binding with collections
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dynamics')} href="#">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('dynamics')} href="javascript:void(0)">
                         Dynamics
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('actions')} href="#">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('actions')} href="javascript:void(0)">
                         Actions
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('layout')} href="#">
+                    <a className="py-2 d-none d-md-inline-block" onClick={() => loadFile('layout')} href="javascript:void(0)">
                         Layout
                     </a>
                 </nav>
