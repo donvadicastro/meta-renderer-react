@@ -18,7 +18,7 @@ export class TableComponent extends DataComponentBase<CollectionBase> {
                 <DataTable value={this.props.elementRef().getValue()}
                            header={this.props.elementRef().getPropertyValue('ui.label')}
                            selectionMode="single"
-                           paginator rows={10} rowsPerPageOptions={[10,25,50,100]}>
+                           paginator rows={this.props.elementRef().getPropertyValue('ui.rows') || 10} rowsPerPageOptions={[10,25,50,100]}>
                     {this.props.meta.items.map((x: any) => <Column field={x.binding} header={x.ui?.label || x.name}/>)}
                 </DataTable>
             </div>
