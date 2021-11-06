@@ -1,11 +1,11 @@
 import React from "react";
-import {Action} from "meta-framework/dist/app/models/components/action";
+import {ActionBase} from "meta-framework/dist/app/models/components/base/action";
 import {ComponentBase} from "../base/componentBase";
 
 /**
  * Primary UI component for action
  */
-export class ButtonComponent extends ComponentBase<Action> {
+export class ButtonComponent extends ComponentBase<ActionBase> {
     onClick() {
         const confirmation = this.props.elementRef().getPropertyValue('action.confirmation');
         const canExecute = confirmation ? window.confirm(confirmation) : true;
