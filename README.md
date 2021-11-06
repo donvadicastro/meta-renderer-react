@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2b9891ae-545f-4782-a368-0bafe4bba538/deploy-status)](https://app.netlify.com/sites/quizzical-visvesvaraya-459c19/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b9891ae-545f-4782-a368-0bafe4bba538/deploy-status)](https://app.netlify.com/sites/meta-renderer/deploys)
 
 # React meta renderer
 React renderer for a forms designed using [meta-framework](https://github.com/donvadicastro/meta).
