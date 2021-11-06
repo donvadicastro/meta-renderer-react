@@ -8,8 +8,4 @@
 /assets
 /storybook-static
 /public
-
-/src/app
-/src/definitions
-/src/stories
-/src/*.js
+/src
