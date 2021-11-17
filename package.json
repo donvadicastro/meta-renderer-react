@@ -23,7 +23,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "compile": "tsc --noEmit false",
+    "compile": "tsc",
     "test": "craco test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
