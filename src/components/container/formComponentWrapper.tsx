@@ -4,7 +4,7 @@ import {FormComponent} from "./formComponent";
 
 const YAML = require('yamljs');
 
-type FormWrapperParams = { json?: any, yaml?: string };
+type FormWrapperParams = { json?: any, yaml?: string, value?: any };
 
 export class FormComponentWrapper extends Component<FormWrapperParams> {
     element: Form;
@@ -14,6 +14,8 @@ export class FormComponentWrapper extends Component<FormWrapperParams> {
 
         this.element = new Form(FormComponentWrapper.getMeta(props));
         this.element.initialize();
+
+        props.value && this.element.setValue(props.value);
     }
 
     shouldComponentUpdate(nextProps: Readonly<FormWrapperParams>, nextState: any) {
@@ -25,6 +27,8 @@ export class FormComponentWrapper extends Component<FormWrapperParams> {
         this.element.destroy();
         this.element = new Form(FormComponentWrapper.getMeta(nextProps));
         this.element.initialize();
+
+        nextProps.value && this.element.setValue(nextProps.value);
     }
 
     componentWillUnmount() {
